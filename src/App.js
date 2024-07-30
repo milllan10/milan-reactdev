@@ -1,23 +1,22 @@
-import React, { useState, createContext, useContext } from 'react';
-import Header from './components/Header'
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import './App.css';
+import Home from "./pages/Home";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import HeroSection from './components/HeroSection';
 
-// Create a ThemeContext to provide theme information and toggling function
-const ThemeContext = createContext();
-
-export const useTheme = () => useContext(ThemeContext);
-
-const App = () => {
-  const [isDarkTheme, setIsDarkTheme] = useState(false);
-
-  const toggleTheme = () => setIsDarkTheme(!isDarkTheme);
-
+function App() {
   return (
-    <ThemeContext.Provider value={{ isDarkTheme, toggleTheme }}>
-      <div className={isDarkTheme ? 'bg-gray-900 text-white' : 'bg-white text-gray-900'}>
-        <Header />
-      </div>
-    </ThemeContext.Provider>
+    <BrowserRouter>
+      <Header />
+      <Routes>
+        <Route path="/milan-reactdev" element={<Home />} />
+        {/* Add more routes here */}
+      </Routes>
+      <Footer />
+    </BrowserRouter>
   );
-};
+}
 
 export default App;

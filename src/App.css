@@ -36,3 +36,17 @@
     transform: rotate(360deg);
   }
 }
+
+body.overflow-hidden {
+  overflow: hidden;
+}
+
+.fixed-menu {
+  position: fixed;
+  top: 4rem; /* Adjust based on your header height */
+  right: 0;
+  width: 100%;
+  height: calc(100vh - 4rem); /* Adjust based on your header height */
+  background-color: inherit;
+  transition: transform 0.3s ease-in-out;
+}
